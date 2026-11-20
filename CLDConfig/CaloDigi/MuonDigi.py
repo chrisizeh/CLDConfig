@@ -45,11 +45,11 @@ if reco_args.native:
         MuonDigiSequence.append(MyDDSimpleMuonDigi)
     merger = CollectionMerger("MuonCollectionMerger")
     merger.InputCollections = output_collections
-    merger.OutputCollection = single_output_collection
+    merger.OutputCollection = [single_output_collection]
 
     relation_merger = CollectionMerger("MuonRelationMerger")
     relation_merger.InputCollections = output_relation
-    relation_merger.OutputCollection = single_output_relation
+    relation_merger.OutputCollection = [single_output_relation]
     MuonDigiSequence += [merger, relation_merger]
 else:
     from Configurables import MarlinProcessorWrapper
